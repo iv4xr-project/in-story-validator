@@ -1,0 +1,276 @@
+{
+    "passages": [
+      {
+        "text": "Detective: I'd like to ask you a few questions\n\n[[Where were you last night?|Choice1]]\n[[Last night you were at the party, correct?|Choice2]]\n\n(set: $anger to 0) (set: $fear to 0) (set: $confusion to 0) ",
+        "links": [
+          {
+            "name": "Where were you last night?",
+            "link": "Choice1",
+            "pid": "2"
+          },
+          {
+            "name": "Last night you were at the party, correct?",
+            "link": "Choice2",
+            "pid": "3"
+          }
+        ],
+        "name": "Beggining",
+        "pid": "1",
+        "position": {
+          "x": "601",
+          "y": "0"
+        }
+      },
+      {
+        "text": "Suspect: If you don't know, why am I here detective? (set: $anger += 1) (set: $confusion += 2)\n\n[[Continue]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Continue",
+            "pid": "4"
+          }
+        ],
+        "name": "Choice1",
+        "pid": "2",
+        "position": {
+          "x": "500",
+          "y": "150"
+        }
+      },
+      {
+        "text": "Suspect: Yes, indeed. I was invited. (set: $anger -= 1)\n\n\n[[Continue]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Continue",
+            "pid": "4"
+          }
+        ],
+        "name": "Choice2",
+        "pid": "3",
+        "position": {
+          "x": "700",
+          "y": "150"
+        }
+      },
+      {
+        "text": "Detective: I would also like to ask...\n\n[[How well did you know Miss M?->Choice3]]\n[[I heard you had an argument with Miss M prior to her murder. You know that makes you our main suspect?->Choice4]]\n[[How was the food at the party?->Choice5]]",
+        "links": [
+          {
+            "name": "How well did you know Miss M?",
+            "link": "Choice3",
+            "pid": "5"
+          },
+          {
+            "name": "I heard you had an argument with Miss M prior to her murder. You know that makes you our main suspect?",
+            "link": "Choice4",
+            "pid": "6"
+          },
+          {
+            "name": "How was the food at the party?",
+            "link": "Choice5",
+            "pid": "14"
+          }
+        ],
+        "name": "Continue",
+        "pid": "4",
+        "position": {
+          "x": "600",
+          "y": "300"
+        }
+      },
+      {
+        "text": "Suspect: Oh, how well did I know her? Too well! That woman owed me money for months and always came with the excuse of how \"life was difficult\". Look at me, that dress she was wearing was certainly not cheap ... That liar! I ....... *sweating* I mean, I'm sorry for my language, detective.\n(set: $anger -= 2)(set: $fear += 3)\n\n[[Continue->Evidence]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Evidence",
+            "pid": "7"
+          }
+        ],
+        "name": "Choice3",
+        "pid": "5",
+        "position": {
+          "x": "430",
+          "y": "451"
+        }
+      },
+      {
+        "text": "Suspect: And what if I did!? Are you accusing me of something, detective? I don't like that tone of yours...! (set: $anger += 2)\n\n[[Continue->Evidence]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Evidence",
+            "pid": "7"
+          }
+        ],
+        "name": "Choice4",
+        "pid": "6",
+        "position": {
+          "x": "605",
+          "y": "443"
+        }
+      },
+      {
+        "text": "Detective: Near the body we found this item. Can you tell me more about it?\n\nShow an item:\n[[Mr. S handkerchief]]\n[[Miss M lipstick]]\n[[Party Invitation]]\n",
+        "links": [
+          {
+            "name": "Mr. S handkerchief",
+            "link": "Mr. S handkerchief",
+            "pid": "8"
+          },
+          {
+            "name": "Miss M lipstick",
+            "link": "Miss M lipstick",
+            "pid": "9"
+          },
+          {
+            "name": "Party Invitation",
+            "link": "Party Invitation",
+            "pid": "10"
+          }
+        ],
+        "name": "Evidence",
+        "pid": "7",
+        "position": {
+          "x": "600",
+          "y": "600"
+        }
+      },
+      {
+        "text": "Suspect: That's... mine. I swear I don't know how it got near the body!(set: $anger -= 2)(set: $fear += 3)\n\n(if: $anger <= -4) [[Continue->Ending 1]]\n(if: $anger > 1) [[Continue->Ending 2]]\n(if: $anger > -4 and < 2) [[Continue->Ending 3]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Ending 1",
+            "pid": "11"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 2",
+            "pid": "12"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 3",
+            "pid": "13"
+          }
+        ],
+        "name": "Mr. S handkerchief",
+        "pid": "8",
+        "position": {
+          "x": "450",
+          "y": "750"
+        }
+      },
+      {
+        "text": "Suspect: I'm sorry. Is this interrogation a joke? This cleary belong to a woman! (set: $anger += 2)\n\n(if: $anger <= -4) [[Continue->Ending 1]]\n(if: $anger > 1) [[Continue->Ending 2]]\n(if: $anger > -4 and < 2) [[Continue->Ending 3]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Ending 1",
+            "pid": "11"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 2",
+            "pid": "12"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 3",
+            "pid": "13"
+          }
+        ],
+        "name": "Miss M lipstick",
+        "pid": "9",
+        "position": {
+          "x": "600",
+          "y": "750"
+        }
+      },
+      {
+        "text": "Suspect: It the invitation for the party. All the guets recieved one exactly like that.(set: $confusion += 2)\n\n(if: $anger <= -4) [[Continue->Ending 1]]\n(if: $anger > 1) [[Continue->Ending 2]]\n(if: $anger > -4 and < 2) [[Continue->Ending 3]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Ending 1",
+            "pid": "11"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 2",
+            "pid": "12"
+          },
+          {
+            "name": "Continue",
+            "link": "Ending 3",
+            "pid": "13"
+          }
+        ],
+        "name": "Party Invitation",
+        "pid": "10",
+        "position": {
+          "x": "750",
+          "y": "750"
+        }
+      },
+      {
+        "text": "Suspect: Ok, ok I confess! I was the one who killed her!\n\n\t[ENDING 1: Good Detective]",
+        "name": "Ending 1",
+        "pid": "11",
+        "position": {
+          "x": "450",
+          "y": "900"
+        },
+        "tags": [
+            "ENDING-POINT"
+        ]
+      },
+      {
+        "text": "Suspect: Enough of this! I want my lawyer.\n\n[ENDING 2: Laywer]",
+        "name": "Ending 2",
+        "pid": "12",
+        "position": {
+          "x": "600",
+          "y": "900"
+        },
+        "tags": [
+            "ENDING-POINT"
+        ]
+      },
+      {
+        "text": "Detective: This is getting nowhere!\n\n[ENDING 3: Not enough evidence]",
+        "name": "Ending 3",
+        "pid": "13",
+        "position": {
+          "x": "750",
+          "y": "900"
+        },
+        "tags": [
+            "ENDING-POINT"
+        ]
+      },
+      {
+        "text": "Suspect: Yes, it was delightful... but I don't understand how is that relevant? (set: $anger += 1) (set: $confusion += 2) \n\n[[Continue->Evidence]]",
+        "links": [
+          {
+            "name": "Continue",
+            "link": "Evidence",
+            "pid": "7"
+          }
+        ],
+        "name": "Choice5",
+        "pid": "14",
+        "position": {
+          "x": "780",
+          "y": "446"
+        }
+      }
+    ],
+    "name": "Interrogatório",
+    "startnode": "1",
+    "creator": "Twine",
+    "creator-version": "2.3.9",
+    "ifid": "BFE2A35A-1B55-4265-B920-DAB0B029F96E"
+  }
