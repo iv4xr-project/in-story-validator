@@ -108,7 +108,7 @@ class GUI:
         self.entryMax.trace("w", self.changeVerifyButton)
 
         # List of Checkboxes for "Analysis Conditions"
-        Label(self.options_frame, text="—————— Analysis Conditions ——————").grid(row=0, pady=10)
+        Label(self.options_frame, text="------ Analysis Conditions ------").grid(row=0, pady=10)
 
         C0 = Checkbutton(self.options_frame, text="Number of Paths", width = "36", anchor="w", command=self.changeVerifyButton, state= DISABLED)
         C0.grid(row=1)
@@ -156,7 +156,7 @@ class GUI:
         self.B3.grid(row=10, padx=0, pady=10, ipadx=10)
         
         # Create "Select path" section
-        L2 = Label(self.options_frame, text="——————— Select path ———————")
+        L2 = Label(self.options_frame, text="------- Select path -------")
         L2.grid(row=11, pady=5)
 
         self.tooltips_items[L2] = "Select which path you wish to\nanalyse on the second tree."
@@ -1080,12 +1080,12 @@ def print_PDF():
 
     # Print values to pdf
     file_name = str((gui.file_name.get()).split('.', 1)[0])
-    file_path = str(dir_path)+ "\\Saved Logs\\" + file_name + "_REPORT.pdf"
+    file_path = str(dir_path)+ "/SavedLogs/" + file_name + "_REPORT.pdf"
 
     i = 1
     while Path(file_path).is_file():
         # File exists
-        file_path = str(dir_path)+ "\\Saved Logs\\" + file_name + "_REPORT(" + str(i) + ").pdf"
+        file_path = str(dir_path)+ "/SavedLogs/" + file_name + "_REPORT(" + str(i) + ").pdf"
         i += 1
 
     pdf.output(file_path)
@@ -1103,8 +1103,8 @@ def create_Tree():
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
     # Save Dialog Tree to image
-    gui.dot.render(filename='TREE', directory= str(dir_path)+ "\\tmp", view=False, format='png')
-    gui.dot2.render(filename='TREE2', directory= str(dir_path)+ "\\tmp", view=False, format='png')
+    gui.dot.render(filename='TREE', directory= str(dir_path)+ "/tmp", view=False, format='png')
+    gui.dot2.render(filename='TREE2', directory= str(dir_path)+ "/tmp", view=False, format='png')
 
     # Draw Full Dialog Tree in GUI
     image = PhotoImage(file= str(dir_path)+ "/tmp/TREE.png")
