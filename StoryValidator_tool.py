@@ -1088,6 +1088,8 @@ def print_PDF():
         file_path = str(dir_path)+ "/SavedLogs/" + file_name + "_REPORT(" + str(i) + ").pdf"
         i += 1
 
+    if not os.path.exists(str(dir_path)+ "/SavedLogs/"):
+        os.makedirs(str(dir_path)+ "/SavedLogs/")
     pdf.output(file_path)
     
     del pdf
