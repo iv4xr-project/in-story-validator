@@ -4,4 +4,8 @@ class StoryState:
 		self.id = id
 		self.name = name 
 		self.text = text
-		self.choices = []
+		self.links = []
+		self.vars = []
+
+	def AddLink(self, id):
+		self.links.append(id)
