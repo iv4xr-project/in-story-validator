@@ -3,6 +3,7 @@ import json
 import re
 import math
 from story import *
+from TwineParser import *
 
 if __name__ == "__main__":
 	if len(sys.argv) == 3 and sys.argv[1] == "-f" and sys.argv[2][-5:] == ".json":
@@ -12,7 +13,7 @@ if __name__ == "__main__":
 		story_json = json.load(file)
 
 
-		story_states = {}
+		story_passages = {}
 		var_names = []
 
 		# create story states and list of variables
@@ -20,8 +21,8 @@ if __name__ == "__main__":
 			pid = passage["pid"]
 			name = passage["name"]
 			text = passage["text"]
-			story_state = StoryState(pid, name, text)
-			story_states[pid] = story_state
+			story_passage = StoryPassage(pid, name, text)
+			story_passages[pid] = story_passage
 
 			look_for_vars = re.findall("\$[a-zA-Z0-9]+", text)
 			for found_var in look_for_vars:
@@ -32,7 +33,7 @@ if __name__ == "__main__":
 		# update links references
 		for passage in story_json["passages"]:
 			parent_id = passage["pid"]
-			parent = story_states[parent_id]
+			parent = story_passages[parent_id]
 
 			if "links" in passage:
 				for link in passage["links"]:
@@ -42,6 +43,12 @@ if __name__ == "__main__":
 			var_values = []
 			for var_name in var_names:
 				var_values.append(0)
+
+
+			text = passage["text"]
+			TwineCodeParser(text)
+
+
 		
 	else:
 		print "--- Unknown command or input file extension."

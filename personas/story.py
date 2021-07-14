@@ -1,4 +1,4 @@
-class StoryState:
+class StoryPassage:
 
 	def __init__(self, id, name, text):
 		self.id = id
