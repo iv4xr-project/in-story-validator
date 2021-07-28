@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
 
 		story_passages = {}
-		var_names = []
+		variables = {}
 
 		# create story states and list of variables
 		for passage in story_json["passages"]:
@@ -27,8 +27,7 @@ if __name__ == "__main__":
 			look_for_vars = re.findall("\$[a-zA-Z0-9]+", text)
 			for found_var in look_for_vars:
 				var_name = found_var[1:]
-				if not var_name in var_names:
-					var_names.append(var_name)
+				variables[var_name] = 0
 
 		# update links references
 		for passage in story_json["passages"]:
@@ -40,14 +39,16 @@ if __name__ == "__main__":
 					child_id = link["pid"]
 					parent.AddLink(child_id)
 
-			var_values = []
-			for var_name in var_names:
-				var_values.append(0)
+			# var_values = []
+			# for var_name in var_names:
+			# 	var_values.append(0)
 
 
 			text = passage["text"]
-			TwineCodeParser(text)
-
+			#print variables
+			new_variables = UpdateVariables(text, variables.copy())
+			#print new_variables
+			GetPossibleLinks(text, new_variables)
 
 		
 	else:
