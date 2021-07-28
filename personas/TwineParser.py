@@ -102,12 +102,7 @@ def GetPossibleLinks(text, variables):
 		else:
 			print "ERROR: Unknown link statement <" + cond_link + ">"
 	
-
-
-	#print text
-	print possible_links
+	return possible_links
 		
-	#for link_statement in re.findall(LINK_STATEMENT, text):
-	#	print link_statement
-
+	
 
