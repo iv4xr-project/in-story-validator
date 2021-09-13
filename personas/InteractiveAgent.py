@@ -75,7 +75,8 @@ if __name__ == "__main__":
 					max_value = score
 					chosen_link = link
 			state = story_passages[chosen_link]
-			print ">>> Agent chose [" + chosen_link + "]."
+			variables = new_variables
+			print ">>> Agent chose [" + chosen_link + "] with variables " + variables_text + " as " + str(new_variables.values()) + "."
 
 		print ">>> Reached story end."
 
