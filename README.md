@@ -8,8 +8,3 @@ Inside "Stories" there's two JSON files with story examples to test the tool
 ## Other Works Used
 Tooltips - by [vegaseat](https://www.daniweb.com/programming/software-development/code/484591/a-tooltip-class-for-tkinter)
 twison -  by [lazerwalker](https://github.com/lazerwalker/twison)
-
-## To Do List
-- [x] Initial submission
-- [ ] Update Readme file
-- [ ] Add player personas
